@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Continuity Checker Tool</title>
+    <style>
+        body{font-family: Arial; padding: 30px; background: #f5f5f5;}
+        .box{max-width: 700px; margin: auto; background: white; padding: 25px; border-radius: 10px;}
+        input{width: 100%; padding: 8px; margin: 5px 0; font-size: 16px;}
+        button{padding: 10px 20px; background: #4CAF50; color:white; border:none; border-radius:5px; cursor:pointer;}
+        .result{margin-top:20px; padding:15px; background:#e8f5e9; border-radius:8px;}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>Continuity Checker Tool</h2>
+        <p>Check if a function is continuous at x = a</p>
+
+        <label>Function f(x):</label>
+        <input type="text" id="fx" value="(x^2 - 4)/(x - 2)">
+
+        <label>Point a:</label>
+        <input type="text" id="a" value="2">
+
+        <br><br>
+        <button onclick="check()">Check Continuity</button>
+
+        <div class="result" id="res"></div>
+    </div>
+
+    <script>
+        function check() {
+            let fx = document.getElementById("fx").value;
+            let a = document.getElementById("a").value;
+            let res = document.getElementById("res");
+
+            res.innerHTML = `
+            <h3>Result</h3>
+            <p>Function: f(x) = ${fx}</p>
+            <p>At point x = ${a}</p>
+            <p><b>Three conditions for continuity:</b></p>
+            <p>1. f(a) must be defined</p>
+            <p>2. limₓ→ₐ f(x) must exist</p>
+            <p>3. limₓ→ₐ f(x) = f(a)</p>
+            <p style="color:blue"><b>This tool helps students verify continuity visually.</b></p>
+            `;
+        }
+    </script>
+</body>
+</html>
